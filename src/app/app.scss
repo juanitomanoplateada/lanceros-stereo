@@ -25,7 +25,12 @@ app-player {
   flex: 1;
 }
 
-
 app-footer {
   flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  app-footer {
+    display: none;
+  }
 }

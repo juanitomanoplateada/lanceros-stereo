@@ -94,3 +94,9 @@ button {
     color: $color-secondary;
   }
 }
+
+@media (max-width: 768px) {
+  app-footer {
+    display: none;
+  }
+}
