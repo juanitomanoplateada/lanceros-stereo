@@ -62,6 +62,7 @@
     height: 500px;
     border: none;
     display: block;
+    overflow: hidden;
   }
 
   @media (max-width: 768px) {
@@ -69,6 +70,7 @@
       font-size: 1.6rem;
     }
     &__subtitle {
+      display: none;
       font-size: 1rem;
     }
     &__frame-container {
@@ -81,6 +83,7 @@
       font-size: 1.4rem;
     }
     &__subtitle {
+      display: none;
       font-size: 0.9rem;
     }
     &__frame-container {
