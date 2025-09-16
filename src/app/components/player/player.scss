@@ -66,13 +66,9 @@
   }
 
   @media (max-width: 768px) {
-
-    .live-player{
-      margin-bottom: 7.5rem;
-    }
-
     &__title {
       font-size: 1.6rem;
+      display: none;
     }
     &__subtitle {
       display: none;
@@ -86,6 +82,7 @@
   @media (max-width: 480px) {
     &__title {
       font-size: 1.4rem;
+      display: none;
     }
     &__subtitle {
       display: none;
@@ -93,9 +90,6 @@
     }
     &__frame-container {
       max-width: 350px;
-    }
-    .live-player{
-      margin-bottom: 7.5rem;
     }
   }
 }
