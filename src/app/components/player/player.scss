@@ -65,12 +65,24 @@
   }
 
   @media (max-width: 768px) {
+    &__title {
+      font-size: 1.6rem;
+    }
+    &__subtitle {
+      font-size: 1rem;
+    }
     &__frame-container {
       max-width: 350px;
     }
   }
 
   @media (max-width: 480px) {
+    &__title {
+      font-size: 1.4rem;
+    }
+    &__subtitle {
+      font-size: 0.9rem;
+    }
     &__frame-container {
       max-width: 350px;
     }
