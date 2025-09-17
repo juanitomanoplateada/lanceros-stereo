@@ -1,0 +1,101 @@
+@use "../../../variables" as *;
+
+.radio-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+  z-index: 1000;
+  background-color: $color-primary;
+  border-top: 3px solid $color-accent;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.play-btn {
+  background: #444;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background: #666;
+  }
+}
+
+.metadata {
+  flex: 1;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  label {
+    font-size: 0.8rem;
+    color: #ddd;
+  }
+
+  input[type="range"] {
+    width: 100px;
+    accent-color: $color-accent; // soporte moderno
+
+    /* Para navegadores que no soportan accent-color, personalizamos: */
+    &::-webkit-slider-runnable-track {
+      height: 6px;
+      background: lighten($color-accent, 25%);
+      border-radius: 3px;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: $color-accent;
+      cursor: pointer;
+      margin-top: -4px; // centra el thumb en la pista
+    }
+
+    &::-moz-range-track {
+      height: 6px;
+      background: lighten($color-accent, 25%);
+      border-radius: 3px;
+    }
+
+    &::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: $color-accent;
+      cursor: pointer;
+      border: none;
+    }
+  }
+}
+
+/* 🔽 Ocultar en pantallas pequeñas */
+@media (max-width: 768px) {
+  .volume-control {
+    display: none;
+  }
+}

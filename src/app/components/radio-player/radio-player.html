@@ -1,0 +1,29 @@
+<div class="radio-player">
+  <!-- Botón con tres estados -->
+  <button
+    (click)="togglePlay()"
+    class="play-btn"
+    [disabled]="playerState === 'loading'"
+  >
+    <span *ngIf="playerState === 'stopped'">▶️ Reproducir</span>
+    <span *ngIf="playerState === 'loading'">⏳ SINTONIZANDO...</span>
+    <span *ngIf="playerState === 'playing'">⏸️ Pausar</span>
+  </button>
+
+  <!-- Metadata dinámica -->
+  <div class="metadata">{{ currentSong }}</div>
+
+  <!-- Control de volumen -->
+  <div class="volume-control">
+    <label for="volume">Volumen</label>
+    <input
+      id="volume"
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      [value]="volume"
+      (input)="changeVolume($event)"
+    />
+  </div>
+</div>
