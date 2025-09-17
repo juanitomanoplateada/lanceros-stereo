@@ -7,8 +7,8 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 1rem;
-  margin-bottom: 5rem;
+  padding: 2rem 1rem;
+  margin-bottom: 3rem;
 
   &__container {
     width: 100%;
@@ -17,7 +17,7 @@
   }
 
   &__title {
-    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.6rem);
     font-weight: 800;
     color: $color-primary;
     margin-bottom: 0.5rem;
@@ -25,7 +25,7 @@
     &::after {
       content: "";
       display: block;
-      margin: 0.5rem auto 0;
+      margin: 0.75rem auto 0;
       width: 80px;
       height: 4px;
       background: $color-secondary;
@@ -41,9 +41,9 @@
   }
 
   &__image {
-    width: 50%;
+    width: min(80%, 350px);
     height: auto;
     display: block;
-    margin: 0 auto; // 🔹 asegura que quede centrada
+    margin: 0 auto;
   }
 }

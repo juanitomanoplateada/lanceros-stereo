@@ -1,25 +1,34 @@
 @use "../../../variables" as *;
 
 .navbar {
-  position: relative;
   width: 100%;
   background-color: $color-primary;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
   &__logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: clamp(
+      1rem,
+      4vw,
+      1.6rem
+    ); // 🔹 se adapta: mínimo 1rem, máximo 1.6rem
+    font-weight: 800;
     color: $color-white;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: opacity 0.3s ease;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    white-space: nowrap; // 🔹 evita que se rompa en varias líneas
+    display: inline-block;
+
+    &-highlight {
+      color: #92c880;
+    }
 
     &:hover {
-      opacity: 0.9;
+      opacity: 0.85;
     }
   }
 }
