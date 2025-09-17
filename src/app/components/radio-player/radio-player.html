@@ -5,9 +5,9 @@
     class="play-btn"
     [disabled]="playerState === 'loading'"
   >
-    <span *ngIf="playerState === 'stopped'">▶️ Reproducir</span>
-    <span *ngIf="playerState === 'loading'">⏳ SINTONIZANDO...</span>
-    <span *ngIf="playerState === 'playing'">⏸️ Pausar</span>
+    <span *ngIf="playerState === 'stopped'">▶️</span>
+    <span *ngIf="playerState === 'loading'">⏳</span>
+    <span *ngIf="playerState === 'playing'">⏸️</span>
   </button>
 
   <!-- Metadata dinámica -->
