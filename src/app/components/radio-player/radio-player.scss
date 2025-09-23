@@ -22,10 +22,17 @@
   background: #444;
   border: none;
   color: white;
-  font-size: 1rem;
-  padding: 10px 15px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 
   &:disabled {
     opacity: 0.6;
@@ -34,6 +41,19 @@
 
   &:hover:not(:disabled) {
     background: #666;
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
