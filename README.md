@@ -109,3 +109,12 @@ npm run test   # o ng test
 ```
 
 ---
+
+## 🖥️📱 Vista Previa
+
+### Escritorio
+![Vista Escritorio](public/desktop-preview.png)
+
+### Móvil
+![Vista Móvil](public/screenshots/mobile-preview.png)
+
