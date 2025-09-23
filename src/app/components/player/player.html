@@ -9,10 +9,17 @@
       </p>
     </header>
 
-    <img
-      class="live-player__image"
-      src="LS94_1.png"
-      alt="Transmisión en vivo de Lanceros Stereo 94.1 FM"
-    />
+    <div class="live-player__visual">
+      <img
+        class="live-player__image"
+        src="LS94_1.png"
+        alt="Transmisión en vivo de Lanceros Stereo 94.1 FM"
+        [ngClass]="{ 'is-playing': playerState === 'playing' }"
+      />
+
+      <div class="live-player__waves" *ngIf="playerState === 'playing'">
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </div>
   </div>
 </section>
