@@ -1,6 +1,21 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideHttpClient } from '@angular/common/http';
+import { APP_INITIALIZER } from '@angular/core';
 import { App } from './app/app';
+import { ConfigService } from './app/config.service';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+export function initializeConfig(config: ConfigService) {
+  return () => config.loadConfig();
+}
+
+bootstrapApplication(App, {
+  providers: [
+    provideHttpClient(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeConfig,
+      deps: [ConfigService],
+      multi: true,
+    },
+  ],
+}).catch((err) => console.error(err));

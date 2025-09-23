@@ -1,6 +1,7 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ConfigService } from '../../config.service';
 
 @Component({
   selector: 'app-radio-player',
@@ -9,60 +10,61 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './radio-player.html',
   styleUrls: ['./radio-player.scss'],
 })
-export class RadioPlayer implements OnDestroy {
-  streamUrl = 'http://link.zeno.fm:80/jz1bfxan45kuv';
-  metadataUrl = 'https://api.zeno.fm/mounts/metadata/subscribe/jz1bfxan45kuv';
-
+export class RadioPlayer implements OnInit, OnDestroy {
   playerState: 'stopped' | 'loading' | 'playing' = 'stopped';
   volume = 1;
   currentSong = 'Esperando transmisión...';
 
-  private audio = new Audio(this.streamUrl);
+  private audio?: HTMLAudioElement;
   private eventSource?: EventSource;
 
-  constructor() {
+  constructor(private config: ConfigService) {}
+
+  ngOnInit() {
+    const streamUrl = this.config.streamUrl;
+    const metadataUrl = this.config.metadataUrl;
+
+    this.audio = new Audio(streamUrl);
     this.audio.volume = this.volume;
 
-    this.audio.addEventListener('playing', () => {
-      this.playerState = 'playing';
-    });
-
+    this.audio.addEventListener(
+      'playing',
+      () => (this.playerState = 'playing')
+    );
     this.audio.addEventListener('error', () => {
       this.playerState = 'stopped';
       this.currentSong = 'Error al conectar';
     });
-
     this.audio.addEventListener('pause', () => {
-      if (this.playerState !== 'loading') {
-        this.playerState = 'stopped';
-      }
+      if (this.playerState !== 'loading') this.playerState = 'stopped';
     });
 
-    this.eventSource = new EventSource(this.metadataUrl);
-
-    this.eventSource.addEventListener('message', (event: any) => {
-      try {
-        const data = JSON.parse(event.data);
-        if (data.streamTitle) {
-          this.currentSong = data.streamTitle;
+    try {
+      this.eventSource = new EventSource(metadataUrl);
+      this.eventSource.addEventListener('message', (event: any) => {
+        try {
+          const data = JSON.parse(event.data);
+          if (data.streamTitle) this.currentSong = data.streamTitle;
+        } catch {
+          this.currentSong = 'Sin metadata disponible';
         }
-      } catch {
-        this.currentSong = 'Sin metadata disponible';
-      }
-    });
-
-    this.eventSource.addEventListener('error', () => {
-      this.currentSong = 'Conexión cerrada';
-    });
+      });
+      this.eventSource.addEventListener('error', () => {
+        this.currentSong = 'Conexión cerrada';
+      });
+    } catch (e) {
+      console.warn('No se pudo crear EventSource:', e);
+      this.currentSong = 'Metadata no disponible';
+    }
   }
 
   togglePlay() {
+    if (!this.audio) return;
+
     if (this.playerState === 'stopped') {
       this.playerState = 'loading';
       this.audio.load();
-      this.audio.play().catch(() => {
-        this.playerState = 'stopped';
-      });
+      this.audio.play().catch(() => (this.playerState = 'stopped'));
     } else if (this.playerState === 'playing') {
       this.audio.pause();
       this.playerState = 'stopped';
@@ -72,11 +74,11 @@ export class RadioPlayer implements OnDestroy {
   changeVolume(event: Event) {
     const input = event.target as HTMLInputElement;
     this.volume = Number(input.value);
-    this.audio.volume = this.volume;
+    if (this.audio) this.audio.volume = this.volume;
   }
 
   ngOnDestroy() {
-    this.audio.pause();
+    this.audio?.pause();
     this.eventSource?.close();
   }
 }
