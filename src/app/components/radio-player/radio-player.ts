@@ -23,7 +23,6 @@ export class RadioPlayer implements OnDestroy {
   constructor() {
     this.audio.volume = this.volume;
 
-    // Estado de audio
     this.audio.addEventListener('playing', () => {
       this.playerState = 'playing';
     });
@@ -39,7 +38,6 @@ export class RadioPlayer implements OnDestroy {
       }
     });
 
-    // 🔊 Suscribirse al endpoint de metadata vía SSE
     this.eventSource = new EventSource(this.metadataUrl);
 
     this.eventSource.addEventListener('message', (event: any) => {

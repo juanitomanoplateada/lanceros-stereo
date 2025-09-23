@@ -1,4 +1,5 @@
 @use "../../../variables" as *;
+@use "sass:color";
 
 .radio-player {
   position: fixed;
@@ -56,12 +57,11 @@
 
   input[type="range"] {
     width: 100px;
-    accent-color: $color-accent; // soporte moderno
+    accent-color: $color-accent;
 
-    /* Para navegadores que no soportan accent-color, personalizamos: */
     &::-webkit-slider-runnable-track {
       height: 6px;
-      background: lighten($color-accent, 25%);
+      background: color.adjust($color-accent, $lightness: 25%);
       border-radius: 3px;
     }
 
@@ -73,12 +73,12 @@
       border-radius: 50%;
       background: $color-accent;
       cursor: pointer;
-      margin-top: -4px; // centra el thumb en la pista
+      margin-top: -4px;
     }
 
     &::-moz-range-track {
       height: 6px;
-      background: lighten($color-accent, 25%);
+      background: color.adjust($color-accent, $lightness: 25%);
       border-radius: 3px;
     }
 
@@ -93,7 +93,6 @@
   }
 }
 
-/* 🔽 Ocultar en pantallas pequeñas */
 @media (max-width: 768px) {
   .volume-control {
     display: none;

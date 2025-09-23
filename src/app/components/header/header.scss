@@ -10,17 +10,13 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
   &__logo {
-    font-size: clamp(
-      1rem,
-      4vw,
-      1.6rem
-    ); // 🔹 se adapta: mínimo 1rem, máximo 1.6rem
+    font-size: clamp(1rem, 4vw, 1.6rem);
     font-weight: 800;
     color: $color-white;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-decoration: none;
-    white-space: nowrap; // 🔹 evita que se rompa en varias líneas
+    white-space: nowrap;
     display: inline-block;
 
     &-highlight {
