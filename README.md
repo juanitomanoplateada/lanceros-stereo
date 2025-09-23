@@ -116,5 +116,5 @@ npm run test   # o ng test
 ![Vista Escritorio](public/desktop-preview.png)
 
 ### Móvil
-![Vista Móvil](public/screenshots/mobile-preview.png)
+![Vista Móvil](public/mobile-preview.jpg)
 
