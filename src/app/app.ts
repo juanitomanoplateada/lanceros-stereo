@@ -4,6 +4,7 @@ import { Header } from './components/header/header';
 import { Player } from './components/player/player';
 import { Footer } from './components/footer/footer';
 import { RadioPlayer } from './components/radio-player/radio-player';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +14,22 @@ import { RadioPlayer } from './components/radio-player/radio-player';
   styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'lanceros-stereo';
+  constructor(private titleService: Title, private metaService: Meta) {
+    this.titleService.setTitle(
+      'Lanceros Stereo 94.1 FM | Música en vivo desde Tuta'
+    );
+    this.metaService.addTags([
+      {
+        name: 'description',
+        content:
+          'Sintoniza Lanceros Stereo 94.1 FM, tu emisora en vivo desde Tuta, Boyacá. Música, cultura y comunidad en un solo lugar.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'radio, música, emisora, Lanceros, Stereo, 94.1, FM, Tuta, Boyacá, online',
+      },
+      { name: 'author', content: 'Lanceros Stereo 94.1 FM' },
+    ]);
+  }
 }
