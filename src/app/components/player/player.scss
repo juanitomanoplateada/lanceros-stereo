@@ -117,7 +117,19 @@
     &__image {
       width: 70%;
     }
+  }
+}
 
+@media (max-height: 815px) and (min-width: 600px) {
+  .live-player__image {
+    height: 45vh;
+    width: auto;
+    max-width: 90%;
+    object-fit: contain;
+  }
+
+  .live-player__header {
+    margin-bottom: 3rem;
   }
 }
 
