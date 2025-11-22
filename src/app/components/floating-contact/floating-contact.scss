@@ -86,3 +86,15 @@
 .mail {
   background: #ff7043;
 } /* Correo */
+
+/* Responsive para teléfonos */
+@media (max-width: 600px) {
+  .contact-floating {
+    bottom: 7.5rem; /* Súbelo más según lo necesites */
+  }
+
+  /* Si quieres que las burbujas también bajen un poco más */
+  .bubble-list {
+    margin-bottom: 14px;
+  }
+}
