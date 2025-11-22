@@ -5,11 +5,12 @@ import { Player } from './components/player/player';
 import { Footer } from './components/footer/footer';
 import { RadioPlayer } from './components/radio-player/radio-player';
 import { Meta, Title } from '@angular/platform-browser';
+import { FloatingContactComponent } from './components/floating-contact/floating-contact';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Header, Player, Footer, RadioPlayer],
+  imports: [Header, Player, Footer, RadioPlayer, FloatingContactComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

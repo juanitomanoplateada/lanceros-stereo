@@ -1,0 +1,88 @@
+.contact-floating {
+  position: fixed;
+  bottom: 15rem;
+  right: 0.5rem;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Botón principal */
+.main-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: greenyellow;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-btn:hover {
+  transform: scale(1.08);
+}
+
+/* Lista de burbujas */
+.bubble-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-out;
+}
+
+.bubble-list.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(1);
+}
+
+/* Burbujas */
+.bubble {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease;
+}
+
+.bubble:hover {
+  transform: scale(1.15);
+}
+
+/* Colores */
+.fb {
+  background: #1877f2;
+}
+.ig {
+  background: #d6249f;
+}
+.tk {
+  background: #000;
+}
+.wa {
+  background: #25d366;
+}
+.maps {
+  background: #4285f4;
+}
+.mail {
+  background: #ff7043;
+} /* Correo */
