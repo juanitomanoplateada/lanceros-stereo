@@ -16,7 +16,7 @@ export class RadioPlayerService implements OnDestroy {
   playerState$ = this.playerStateSubject.asObservable();
 
   private currentSongSubject = new BehaviorSubject<string>(
-    'Presiona ▶ para sintonizar la 94.1 FM'
+    'Presiona ▶ para sintonizar'
   );
   currentSong$ = this.currentSongSubject.asObservable();
 
