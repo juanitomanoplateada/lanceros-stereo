@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RadioPlayerService } from '../../../../core/services/radio-player.service';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-radio-player',
@@ -15,10 +16,20 @@ export class RadioPlayer {
   private radioPlayer = inject(RadioPlayerService);
 
   volume = 1;
-
-  // Expose observables directly for async pipe in template
   playerState$ = this.radioPlayer.playerState$;
   currentSong$ = this.radioPlayer.currentSong$;
+
+  metadataParts$ = this.currentSong$.pipe(
+    map(song => {
+      const parts = song.split(' - ');
+      if (parts.length >= 2) {
+        const artist = parts[0];
+        const title = parts.slice(1).join(' - ');
+        return { artist, title, isSplit: true };
+      }
+      return { artist: '', title: song, isSplit: false };
+    })
+  );
 
   togglePlay() {
     this.radioPlayer.toggle();

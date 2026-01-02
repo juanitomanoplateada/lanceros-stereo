@@ -69,6 +69,28 @@
   text-transform: uppercase;
   /* REQUESTED CHANGE */
   letter-spacing: 0.5px;
+  display: flex;
+  justify-content: center;
+  /* Centrar contenido si es necesario */
+  gap: 5px;
+
+  .artist {
+    font-weight: 700;
+    /* Opcional: resaltar artista */
+    color: #bbb;
+    /* Diferenciar un poco */
+  }
+
+  .title {
+    color: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .metadata .artist {
+    display: none;
+    /* Ocultar artista en móvil */
+  }
 }
 
 .volume-control {
@@ -87,6 +109,7 @@
   /* Custom Range Slider */
   input[type="range"] {
     -webkit-appearance: none;
+    appearance: none;
     /* Remove default styling */
     width: 100px;
     height: 6px;

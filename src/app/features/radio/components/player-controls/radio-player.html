@@ -26,7 +26,10 @@
     </ng-container>
   </button>
 
-  <div class="metadata">{{ currentSong$ | async }}</div>
+  <div class="metadata" *ngIf="metadataParts$ | async as meta">
+    <span class="artist" *ngIf="meta.isSplit">{{ meta.artist }} - </span>
+    <span class="title">{{ meta.title }}</span>
+  </div>
 
   <div class="volume-control">
     <label for="volume">Volumen</label>
