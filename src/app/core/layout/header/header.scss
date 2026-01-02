@@ -1,8 +1,6 @@
-@use "../../../variables" as *;
-
 .navbar {
   width: 100%;
-  background-color: $color-primary;
+  background-color: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +10,7 @@
   &__logo {
     font-size: clamp(1rem, 4vw, 1.6rem);
     font-weight: 800;
-    color: $color-white;
+    color: var(--color-white);
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-decoration: none;
@@ -21,6 +19,7 @@
 
     &-highlight {
       color: #92c880;
+      /* Consider making this a variable if used elsewhere */
     }
 
     &:hover {

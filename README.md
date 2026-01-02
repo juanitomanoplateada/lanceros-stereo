@@ -1,120 +1,92 @@
-# 📻 Lanceros Stereo 94.1 FM
+# Lanceros Stereo 94.1 FM 📻
 
-Aplicación web oficial de la emisora **94.1 Lanceros Stereo FM**, una estación de radio ubicada en **Tuta, Boyacá (Colombia)**.  
-Este proyecto está construido con **Angular** y permite a los oyentes disfrutar de la transmisión en vivo, visualizar información en tiempo real de la programación y contar con una interfaz atractiva, optimizada para diferentes dispositivos y redes sociales.
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
 
-🌐 Sitio en producción: [https://lancerosfm.online](https://lancerosfm.online)  
-📦 Repositorio: [GitHub - juanitomanoplateada/lanceros-stereo](https://github.com/juanitomanoplateada/lanceros-stereo)
+Bienvenido al repositorio oficial del reproductor web de **Lanceros Stereo 94.1 FM**, "La Emisora Comunitaria de Tuta, Boyacá". Esta aplicación moderna y optimizada ofrece una experiencia de escucha continua de alta calidad, visualización de audio en tiempo real y metadatos de transmisión.
 
----
+## 🚀 Características Principales
 
-## 🚀 Propósito y Alcance
+*   **Streaming de Audio Robusto:** Reproducción ininterrumpida con recuperación automática de errores y manejo de estados (buffering, playing, error).
+*   **Arquitectura Modular:** Estructura escalable basada en `Core`, `Features` y `Shared` para facilitar el mantenimiento y la expansión.
+*   **Visualizador de Audio:** Experiencia visual atractiva e inmersiva sincronizada con la reproducción.
+*   **Metadatos en Tiempo Real:** Visualización automática del título de la canción o programa actual utilizando `EventSource` (SSE).
+*   **Interfaz de Usuario (UX) Premium:**
+    *   Diseño responsive y adaptativo.
+    *   Controles de volumen personalizados y consistentes (Cross-browser).
+    *   Sistema de notificaciones "Toast" para feedback de errores de conexión.
+*   **Seguridad:** Configuración segura mediante variables de entorno, sin exposición de secretos en el código fuente.
 
-La aplicación está diseñada para:
+## 🛠️ Arquitectura Técnica
 
-- 📡 Transmitir en vivo el audio de la emisora **94.1 FM** directamente en navegadores web.
-- 🎶 Mostrar **metadatos en tiempo real** sobre el contenido que se está reproduciendo.
-- ✨ Ofrecer una **interfaz visual animada** y moderna.
-- 📱 Adaptarse a **dispositivos móviles y de escritorio** mediante diseño responsivo.
-- 🔍 Implementar **SEO y optimización para redes sociales**.
+El proyecto sigue una arquitectura límpia y modular:
 
----
+*   **`src/app/core`**: Servicios singleton (`RadioPlayerService`, `ConfigService`) y componentes de layout (`Header`, `Footer`).
+*   **`src/app/features/radio`**: Lógica de negocio específica de la radio, dividida en `player-controls` (lógica) y `player-visualizer` (presentación).
+*   **`src/app/shared`**: Componentes reutilizables como `ToastComponent` y `FloatingContact`.
+*   **Estilos**: Variables CSS nativas (`:root`) para theming dinámico y alto rendimiento.
 
-## 🏛️ Arquitectura del Sistema
+## 📋 Requisitos Previos
 
-El sistema sigue una arquitectura moderna de Angular con separación clara entre:
+Asegúrate de tener instalado lo siguiente:
 
-- **Presentación visual** (`app-header`, `app-footer`, `app-player`)
-- **Controles funcionales** (`app-radio-player`)
-- **Gestión de estado y streaming** (SSE, RxJS, Angular services)
+*   [Node.js](https://nodejs.org/) (versión 18.13.0 o superior)
+*   [Angular CLI](https://angular.io/cli) (versión 17.0.0 o superior recomedada)
 
-📂 Estructura principal:
+## ⚙️ Instalación y Configuración
 
-- `app-header` → navegación y branding  
-- `main.main` → componente principal del reproductor  
-- `app-player` → efectos visuales y estado de transmisión  
-- `app-radio-player` → controles de audio (play/pause, volumen, metadata)  
-- `app-footer` → información institucional  
+1.  **Clonar el repositorio:**
 
----
+    ```bash
+    git clone https://github.com/juanitomanoplateada/lanceros-stereo.git
+    cd lanceros-stereo
+    ```
 
-## ⚙️ Tecnologías Utilizadas
+2.  **Instalar dependencias:**
 
-| Tecnología      | Versión  | Propósito                        |
-|-----------------|----------|----------------------------------|
-| Angular         | 20.0.0   | Framework principal              |
-| TypeScript      | 5.8.2    | Lenguaje de programación         |
-| RxJS            | 7.8.0    | Programación reactiva            |
-| Lucide Angular  | 0.544.0  | Iconografía                      |
-| SCSS            | -        | Estilos personalizados           |
+    ```bash
+    npm install
+    ```
 
-📄 Fuente: [`package.json`](package.json)
+3.  **Configuración de Entorno:**
+    La aplicación utiliza archivos de entorno para gestionar URLs de streaming.
+    *   `src/environments/environment.ts` (Producción)
+    *   `src/environments/environment.development.ts` (Desarrollo)
 
----
+    Verifica que las variables `streamUrl` y `metadataUrl` estén correctamente configuradas.
 
-## 🖥️ Punto de Entrada
+## ▶️ Ejecución y Desarrollo
 
-La aplicación inicia en [`src/index.html`](src/index.html), el cual incluye:
-
-- Idioma configurado en **español**
-- Título: `Lanceros Stereo 94.1 FM`
-- **SEO**: meta tags orientados a "música, comunidad y cultura desde Tuta, Boyacá"
-- **Open Graph**: imagen de 1200x630 para compartir en redes
-- **Twitter Cards**: vista previa enriquecida
-- Favicon personalizado: `LS94_1.png`
-- Elemento de montaje de Angular: `<app-root></app-root>`
-
----
-
-## ✨ Características Principales
-
-### 🎧 Transmisión en Vivo
-- Reproducción en tiempo real mediante **HTML5 Audio API**.
-- Control de **volumen y reproducción** (play/pause).
-- Manejo de **estado de conexión** y errores.
-
-### 🎨 Experiencia Visual
-- Efectos animados sincronizados con el estado de reproducción.
-- **Diseño responsive** para móviles y escritorio.
-- Branding de la emisora con colores e identidad visual.
-
-### 📰 Integración de Metadata
-- Actualización en vivo de canciones/programas con **SSE (Server-Sent Events)**.
-- Visualización de la pista en reproducción.
-- Historial de canciones reproducidas.
-
-### 📢 SEO y Redes Sociales
-- Metadatos optimizados para Colombia.
-- Implementación completa de **Open Graph y Twitter Cards**.
-- Banner social (`public/banner.png`) en resolución 1200x630.
-
----
-
-## 🛠️ Scripts de Desarrollo
-
-El proyecto utiliza Angular CLI con los siguientes comandos:
+Para iniciar el servidor de desarrollo:
 
 ```bash
-# Servidor de desarrollo
-npm run start  # o ng serve
-
-# Compilación para producción
-npm run build  # o ng build
-
-# Compilación en modo watch
-ng build --watch
-
-# Pruebas unitarias
-npm run test   # o ng test
+ng serve
 ```
 
----
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias algún archivo fuente.
 
-## 🖥️📱 Vista Previa
+## 📦 Construcción para Producción
 
-### Escritorio
-![Vista Escritorio](public/desktop-preview.png)
+Para generar los artefactos de producción optimizados:
 
-### Móvil
-![Vista Móvil](public/mobile-preview.jpg)
+```bash
+npm run build
+```
 
+Los archivos de salida se almacenarán en el directorio `dist/lanceros-stereo`.
+
+## 🚀 Despliegue en Vivo
+
+La aplicación está desplegada y disponible en:
+
+*   **Sitio Oficial:** [https://lancerosfm.online/](https://lancerosfm.online/)
+*   **Vercel (Dev):** [https://lanceros-stereo-online-git-master-juanitomanoplateadas-projects.vercel.app/](https://lanceros-stereo-online-git-master-juanitomanoplateadas-projects.vercel.app/)
+
+## 🤝 Contribución
+
+Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios importantes antes de enviar un Pull Request.
+
+## 📄 Licencia
+
+Este proyecto es propiedad privada de **Lanceros Stereo 94.1 FM**. Todos los derechos reservados.

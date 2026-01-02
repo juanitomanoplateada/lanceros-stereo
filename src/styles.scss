@@ -1,10 +1,37 @@
-@use "variables" as *;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap");
 
 /* ==========================================================================
    Estilos Globales - Lanceros Stereo 94.1 FM
-   Incluye: Reset, tipografía base, colores, botones y estructura general
+   Modernizado con CSS Custom Properties (Variables CSS)
    ========================================================================== */
+
+:root {
+  /* 🎨 Paleta de colores */
+  --color-primary: #1d2e50;
+  /* Azul oscuro (principal) */
+  --color-primary-light: #2f4277;
+  /* Azul más claro */
+  --color-secondary: #008b5e;
+  /* Verde institucional */
+  --color-accent: #ffc107;
+  /* Amarillo oro */
+  --color-accent-light: #ffdb4d;
+  /* Amarillo claro */
+  --color-white: #ffffff;
+  --color-gray-dark: #333333;
+  --color-bg-light: #f4f6fa;
+  --color-error: #dc3545;
+  /* Rojo error */
+
+  /* 🔤 Tipografía */
+  --font-base: "Inter", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+
+  /* 🔘 UI */
+  --btn-radius: 6px;
+  --section-padding: 5rem 2rem;
+  --scroll-offset: 80px;
+}
 
 /* ===== Reset y comportamiento base ===== */
 * {
@@ -19,11 +46,11 @@
 /* ===== Documento ===== */
 html,
 body {
-  font-family: $font-base;
-  font-size: 16px; // Base rem
+  font-family: var(--font-base);
+  font-size: 16px;
   line-height: 1.6;
-  background-color: $color-bg-light;
-  color: $color-primary;
+  background-color: var(--color-bg-light);
+  color: var(--color-primary);
   overflow-x: hidden;
   width: 100%;
 }
@@ -49,15 +76,16 @@ img {
 
 /* ===== Secciones ===== */
 section {
-  scroll-margin-top: $scroll-offset;
+  scroll-margin-top: var(--scroll-offset);
 }
 
 /* ===== Tipografía ===== */
 h1,
 h2,
 h3 {
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: $color-primary;
+  color: var(--color-primary);
 }
 
 h1 {
@@ -71,27 +99,31 @@ h2 {
 
 p {
   margin-bottom: 1rem;
-  color: $color-gray-dark;
+  color: var(--color-gray-dark);
 }
 
 /* ===== Botones ===== */
 button {
   cursor: pointer;
   border: none;
-  padding: $btn-padding;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
-  border-radius: $btn-radius;
-  transition: background 0.3s ease;
+  border-radius: var(--btn-radius);
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 .btn {
-  background-color: $color-accent;
-  color: $color-primary;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
   font-weight: 600;
 
   &:hover {
-    background-color: $color-accent-light;
-    color: $color-secondary;
+    background-color: var(--color-accent-light);
+    color: var(--color-primary); // Maintain contrast
   }
 }
 

@@ -1,0 +1,134 @@
+.radio-player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 15px;
+  z-index: 1000;
+  background-color: var(--color-primary);
+  border-top: 3px solid var(--color-accent);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.play-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 50%; // Circular click area better for play buttons
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.metadata {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  /* REQUESTED CHANGE */
+  letter-spacing: 0.5px;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  label {
+    font-size: 0.8rem;
+    color: #ddd;
+    display: none; // Hide label text usually, volume icon preferred but text ok for now
+  }
+
+  /* Icono de volumen (opcional, si se quiere agregar visualmente) */
+
+  /* Custom Range Slider */
+  input[type="range"] {
+    -webkit-appearance: none;
+    /* Remove default styling */
+    width: 100px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+
+    /* Chrome/Safari/Edge Thumb */
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      /* Brand Green */
+      border: 2px solid var(--color-white);
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      transition: transform 0.1s;
+    }
+
+    &:hover::-webkit-slider-thumb {
+      transform: scale(1.1);
+    }
+
+    /* Firefox Thumb */
+    &::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--color-secondary);
+      border: 2px solid var(--color-white);
+      cursor: pointer;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .volume-control {
+    display: none; // Often hidden on mobile to save space
+  }
+}

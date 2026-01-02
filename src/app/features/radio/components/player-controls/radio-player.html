@@ -1,0 +1,35 @@
+<div class="radio-player">
+  <button title="Sintonizar / Pausar" (click)="togglePlay()" class="play-btn"
+    [disabled]="(playerState$ | async) === 'loading'">
+    <ng-container *ngIf="(playerState$ | async) === 'stopped' || (playerState$ | async) === 'error'">
+      <!-- Play -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
+      </svg>
+    </ng-container>
+
+    <ng-container *ngIf="(playerState$ | async) === 'playing'">
+      <!-- Pause -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M5.5 3.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8a.5.5 0 0 1 .5-.5m5 0a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0v-8a.5.5 0 0 1 .5-.5" />
+      </svg>
+    </ng-container>
+
+    <ng-container *ngIf="(playerState$ | async) === 'loading'">
+      <!-- Loading (spinner simple) -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"
+        class="spinner">
+        <path d="M8 3a5 5 0 1 0 5 5 .5.5 0 0 1 1 0 6 6 0 1 1-6-6 .5.5 0 0 1 0 1" />
+      </svg>
+    </ng-container>
+  </button>
+
+  <div class="metadata">{{ currentSong$ | async }}</div>
+
+  <div class="volume-control">
+    <label for="volume">Volumen</label>
+    <input id="volume" type="range" min="0" max="1" step="0.01" [value]="volume" (input)="changeVolume($event)" />
+  </div>
+</div>

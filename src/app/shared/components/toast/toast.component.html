@@ -1,0 +1,4 @@
+<div class="toast" [ngClass]="(state$ | async)?.type || 'info'" [class.visible]="(state$ | async)?.visible">
+    <span class="message">{{ (state$ | async)?.message }}</span>
+    <button class="close-btn" (click)="close()" aria-label="Cerrar notificación">×</button>
+</div>

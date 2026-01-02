@@ -10,14 +10,10 @@
     </header>
 
     <div class="live-player__visual">
-      <img
-        class="live-player__image"
-        src="LS94_1.png"
-        alt="Transmisión en vivo de Lanceros Stereo 94.1 FM"
-        [ngClass]="{ 'is-playing': playerState === 'playing' }"
-      />
+      <img class="live-player__image" src="LS94_1.png" alt="Transmisión en vivo de Lanceros Stereo 94.1 FM"
+        [ngClass]="{ 'is-playing': (playerState$ | async) === 'playing' }" />
 
-      <div class="live-player__waves" *ngIf="playerState === 'playing'">
+      <div class="live-player__waves" *ngIf="(playerState$ | async) === 'playing'">
         <span></span><span></span><span></span><span></span>
       </div>
     </div>

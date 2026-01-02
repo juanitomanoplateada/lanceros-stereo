@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 
-import { Header } from './components/header/header';
-import { Player } from './components/player/player';
-import { Footer } from './components/footer/footer';
-import { RadioPlayer } from './components/radio-player/radio-player';
+import { Header } from './core/layout/header/header';
+import { Player } from './features/radio/components/player-visualizer/player';
+import { Footer } from './core/layout/footer/footer';
+import { RadioPlayer } from './features/radio/components/player-controls/radio-player';
 import { Meta, Title } from '@angular/platform-browser';
-import { FloatingContactComponent } from './components/floating-contact/floating-contact';
+import { FloatingContactComponent } from './shared/components/floating-contact/floating-contact';
+import { ToastComponent } from './shared/components/toast/toast.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Header, Player, Footer, RadioPlayer, FloatingContactComponent],
+  imports: [Header, Player, Footer, RadioPlayer, FloatingContactComponent, ToastComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
