@@ -8,27 +8,9 @@
 app-header {
   flex: 0 0 auto;
 }
-
-.main {
+app-radio {
   flex: 1 0 auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--color-bg-light);
-  padding: 0 1rem;
-  width: 100%;
-}
-
-app-player {
-  flex: 1;
-}
-
-app-footer {
-  flex: 0 0 auto;
-}
-
-@media (max-width: 768px) {
-  app-footer {
-    display: none;
-  }
+  flex-direction: column;
+  overflow: hidden;
 }

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Player } from './player';
+import { PlayerVisualizerComponent } from './player-visualizer.component';
 
-describe('Player', () => {
-  let component: Player;
-  let fixture: ComponentFixture<Player>;
+describe('PlayerVisualizerComponent', () => {
+  let component: PlayerVisualizerComponent;
+  let fixture: ComponentFixture<PlayerVisualizerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Player]
+      imports: [PlayerVisualizerComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Player);
+    fixture = TestBed.createComponent(PlayerVisualizerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

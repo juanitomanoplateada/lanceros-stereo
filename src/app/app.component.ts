@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
-
-import { Header } from './core/layout/header/header';
-import { Player } from './features/radio/components/player-visualizer/player';
-import { Footer } from './core/layout/footer/footer';
-import { RadioPlayer } from './features/radio/components/player-controls/radio-player';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
-import { FloatingContactComponent } from './shared/components/floating-contact/floating-contact';
+
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FloatingContactComponent } from './shared/components/floating-contact/floating-contact.component';
 import { ToastComponent } from './shared/components/toast/toast.component';
+import { RadioComponent } from './features/radio/radio.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Header, Player, Footer, RadioPlayer, FloatingContactComponent, ToastComponent],
-  templateUrl: './app.html',
-  styleUrl: './app.scss',
+  imports: [
+    HeaderComponent,
+    RadioComponent,
+    FloatingContactComponent,
+    ToastComponent
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
 })
-export class App {
+export class AppComponent {
   constructor(private titleService: Title, private metaService: Meta) {
     this.titleService.setTitle(
       'Lanceros Stereo 94.1 FM | Música en vivo desde Tuta'

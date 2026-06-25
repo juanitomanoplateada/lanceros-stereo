@@ -101,7 +101,6 @@ export class RadioPlayerService implements OnDestroy {
             this.setSong(data.streamTitle);
           }
         } catch {
-          // Ignorar errores de parseo
         }
       });
       this.eventSource.addEventListener('error', () => {

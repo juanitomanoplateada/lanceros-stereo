@@ -1,13 +1,21 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection, APP_INITIALIZER } from '@angular/core';
+import { provideHttpClient, withXhr } from '@angular/common/http';
+import { ConfigService } from './core/services/config.service';
 
-import { routes } from './app.routes';
+export function initializeConfig(config: ConfigService) {
+  return () => config.loadConfig();
+}
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-
+    provideHttpClient(withXhr()),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeConfig,
+      deps: [ConfigService],
+      multi: true,
+    },
   ]
 };

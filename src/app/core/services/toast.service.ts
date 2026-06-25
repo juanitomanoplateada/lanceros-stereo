@@ -21,7 +21,6 @@ export class ToastService {
     show(message: string, type: 'success' | 'error' | 'info' = 'info') {
         this.stateSubject.next({ message, type, visible: true });
 
-        // Auto-hide after 4 seconds
         setTimeout(() => {
             this.hide();
         }, 4000);

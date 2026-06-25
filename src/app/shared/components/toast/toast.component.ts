@@ -11,7 +11,7 @@ import { ToastService } from '../../../core/services/toast.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToastComponent {
-    private toastService = inject(ToastService);
+    private readonly toastService = inject(ToastService);
     state$ = this.toastService.state$;
 
     close() {

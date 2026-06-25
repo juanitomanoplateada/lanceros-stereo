@@ -8,7 +8,6 @@
   align-items: center;
 }
 
-/* Botón principal */
 .main-btn {
   width: 60px;
   height: 60px;
@@ -29,7 +28,6 @@
   transform: scale(1.08);
 }
 
-/* Lista de burbujas */
 .bubble-list {
   display: flex;
   flex-direction: column;
@@ -48,7 +46,6 @@
   transform: translateY(1);
 }
 
-/* Burbujas */
 .bubble {
   width: 48px;
   height: 48px;
@@ -67,33 +64,35 @@
   transform: scale(1.15);
 }
 
-/* Colores */
 .fb {
   background: #1877f2;
 }
+
 .ig {
   background: #d6249f;
 }
+
 .tk {
   background: #000;
 }
+
 .wa {
   background: #25d366;
 }
+
 .maps {
   background: #4285f4;
 }
+
 .mail {
   background: #ff7043;
-} /* Correo */
+}
 
-/* Responsive para teléfonos */
 @media (max-width: 600px) {
   .contact-floating {
-    bottom: 1rem; /* Súbelo más según lo necesites */
+    bottom: 1rem;
   }
 
-  /* Si quieres que las burbujas también bajen un poco más */
   .bubble-list {
     margin-bottom: 14px;
   }

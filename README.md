@@ -1,92 +1,74 @@
-# Lanceros Stereo 94.1 FM 📻
+# Lanceros Stereo 94.1 FM
 
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+[![Angular](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)](https://angular.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Sass](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=sass&logoColor=white)](https://sass-lang.com/)
 
-Bienvenido al repositorio oficial del reproductor web de **Lanceros Stereo 94.1 FM**, "La Emisora Comunitaria de Tuta, Boyacá". Esta aplicación moderna y optimizada ofrece una experiencia de escucha continua de alta calidad, visualización de audio en tiempo real y metadatos de transmisión.
+Repositorio oficial del reproductor web de Lanceros Stereo 94.1 FM, emisora comunitaria de Tuta, Boyacá. Esta aplicación ofrece una experiencia de escucha continua de alta calidad, visualización de audio en tiempo real y metadatos de transmisión.
 
-## 🚀 Características Principales
+## Características
 
-*   **Streaming de Audio Robusto:** Reproducción ininterrumpida con recuperación automática de errores y manejo de estados (buffering, playing, error).
-*   **Arquitectura Modular:** Estructura escalable basada en `Core`, `Features` y `Shared` para facilitar el mantenimiento y la expansión.
-*   **Visualizador de Audio:** Experiencia visual atractiva e inmersiva sincronizada con la reproducción.
-*   **Metadatos en Tiempo Real:** Visualización automática del título de la canción o programa actual utilizando `EventSource` (SSE).
-*   **Interfaz de Usuario (UX) Premium:**
-    *   Diseño responsive y adaptativo.
-    *   Controles de volumen personalizados y consistentes (Cross-browser).
-    *   Sistema de notificaciones "Toast" para feedback de errores de conexión.
-*   **Seguridad:** Configuración segura mediante variables de entorno, sin exposición de secretos en el código fuente.
+*   **Streaming de audio:** Reproducción ininterrumpida con recuperación automática de errores y gestión de estados (buffering, playing, error).
+*   **Arquitectura modular:** Estructura basada en los directorios Core, Features y Shared para facilitar la escalabilidad.
+*   **Visualizador de audio:** Animación sincronizada con el estado de reproducción del stream.
+*   **Metadatos en tiempo real:** Visualización del título de la canción o programa actual mediante Server-Sent Events (SSE).
+*   **Interfaz adaptativa:** Diseño responsivo con soporte táctil mejorado, controles de volumen avanzados y marquesina de texto optimizada exclusivamente para dispositivos móviles.
 
-## 🛠️ Arquitectura Técnica
+## Requisitos previos
 
-El proyecto sigue una arquitectura límpia y modular:
+*   Node.js (versión 18.13.0 o superior)
+*   Angular CLI (versión 17.0.0 o superior)
 
-*   **`src/app/core`**: Servicios singleton (`RadioPlayerService`, `ConfigService`) y componentes de layout (`Header`, `Footer`).
-*   **`src/app/features/radio`**: Lógica de negocio específica de la radio, dividida en `player-controls` (lógica) y `player-visualizer` (presentación).
-*   **`src/app/shared`**: Componentes reutilizables como `ToastComponent` y `FloatingContact`.
-*   **Estilos**: Variables CSS nativas (`:root`) para theming dinámico y alto rendimiento.
+## Instalación y configuración
 
-## 📋 Requisitos Previos
+1. Clonar el repositorio:
 
-Asegúrate de tener instalado lo siguiente:
+   ```bash
+   git clone https://github.com/juanitomanoplateada/lanceros-stereo.git
+   cd lanceros-stereo
+   ```
 
-*   [Node.js](https://nodejs.org/) (versión 18.13.0 o superior)
-*   [Angular CLI](https://angular.io/cli) (versión 17.0.0 o superior recomedada)
+2. Instalar dependencias:
 
-## ⚙️ Instalación y Configuración
+   ```bash
+   npm install
+   ```
 
-1.  **Clonar el repositorio:**
+3. Configuración de entorno:
+   
+   La aplicación utiliza archivos de entorno para gestionar las URLs de streaming y metadatos:
+   *   `src/environments/environment.ts` (Producción)
+   *   `src/environments/environment.development.ts` (Desarrollo)
 
-    ```bash
-    git clone https://github.com/juanitomanoplateada/lanceros-stereo.git
-    cd lanceros-stereo
-    ```
+   Verifique que las variables `streamUrl` y `metadataUrl` estén correctamente definidas en dichos archivos.
 
-2.  **Instalar dependencias:**
+## Desarrollo
 
-    ```bash
-    npm install
-    ```
-
-3.  **Configuración de Entorno:**
-    La aplicación utiliza archivos de entorno para gestionar URLs de streaming.
-    *   `src/environments/environment.ts` (Producción)
-    *   `src/environments/environment.development.ts` (Desarrollo)
-
-    Verifica que las variables `streamUrl` y `metadataUrl` estén correctamente configuradas.
-
-## ▶️ Ejecución y Desarrollo
-
-Para iniciar el servidor de desarrollo:
+Para iniciar el servidor de desarrollo local:
 
 ```bash
 ng serve
 ```
 
-Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias algún archivo fuente.
+Navegue a `http://localhost:4200/`. La aplicación se recargará automáticamente al realizar cambios en los archivos fuente.
 
-## 📦 Construcción para Producción
+## Producción
 
-Para generar los artefactos de producción optimizados:
+Para generar el compilado optimizado de producción:
 
 ```bash
 npm run build
 ```
 
-Los archivos de salida se almacenarán en el directorio `dist/lanceros-stereo`.
+Los archivos de salida se guardarán en el directorio `dist/lanceros-stereo`.
 
-## 🚀 Despliegue en Vivo
+## Despliegue
 
-La aplicación está desplegada y disponible en:
+La aplicación está disponible en los siguientes enlaces:
 
-*   **Sitio Oficial:** [https://lancerosfm.online/](https://lancerosfm.online/)
-*   **Vercel (Dev):** [https://lanceros-stereo-online-git-master-juanitomanoplateadas-projects.vercel.app/](https://lanceros-stereo-online-git-master-juanitomanoplateadas-projects.vercel.app/)
+*   **Sitio oficial:** [https://lancerosfm.online/](https://lancerosfm.online/)
+*   **Entorno de desarrollo:** [https://lanceros-stereo-online-git-master-juanitomanoplateadas-projects.vercel.app/](https://lanceros-stereo-online-git-master-juanitomanoplateadas-projects.vercel.app/)
 
-## 🤝 Contribución
+## Licencia
 
-Las contribuciones son bienvenidas. Por favor, abre un issue para discutir cambios importantes antes de enviar un Pull Request.
-
-## 📄 Licencia
-
-Este proyecto es propiedad privada de **Lanceros Stereo 94.1 FM**. Todos los derechos reservados.
+Este proyecto es propiedad de Lanceros Stereo 94.1 FM. Todos los derechos reservados.

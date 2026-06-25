@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FloatingContact } from './floating-contact';
+import { FloatingContactComponent } from './floating-contact.component';
 
-describe('FloatingContact', () => {
-  let component: FloatingContact;
-  let fixture: ComponentFixture<FloatingContact>;
+describe('FloatingContactComponent', () => {
+  let component: FloatingContactComponent;
+  let fixture: ComponentFixture<FloatingContactComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FloatingContact]
+      imports: [FloatingContactComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FloatingContact);
+    fixture = TestBed.createComponent(FloatingContactComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
