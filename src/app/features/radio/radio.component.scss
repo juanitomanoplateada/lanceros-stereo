@@ -1,9 +1,14 @@
 .main {
-  flex: 1 0 auto;
+  flex: 1 1 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-bg-light);
-  padding: 0 1rem;
+  padding: 2rem 1rem calc(72px + 5rem);
   width: 100%;
+
+  @media (max-width: 600px) {
+    padding: 1rem 0.5rem calc(72px + 2rem);
+  }
 }
+

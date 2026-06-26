@@ -4,8 +4,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2.5rem 1rem;
-  margin-bottom: 2.5rem;
+  padding: 1rem 1rem 2rem;
+  margin-bottom: 1rem;
 
   &__container {
     width: 100%;
@@ -14,7 +14,7 @@
   }
 
   &__header {
-    margin-bottom: 6.5rem; /* Increased spacing to keep text high and safe from waves */
+    margin-bottom: 3.5rem; /* Safe spacing from waves */
   }
 
   &__title {
@@ -129,11 +129,11 @@
   }
 
   @media (max-width: 600px) {
-    padding: 1.5rem 0.5rem;
-    margin-bottom: 2rem;
+    padding: 0.5rem 0.5rem 1rem;
+    margin-bottom: 0.5rem;
 
     &__header {
-      margin-bottom: 4.5rem; /* Increased spacing on mobile too */
+      margin-bottom: 2.5rem;
     }
 
     &__title {
@@ -167,11 +167,11 @@
 
 @media (max-height: 815px) and (min-width: 600px) {
   .live-player {
-    padding: 1.5rem 1rem;
-    margin-bottom: 1.5rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
 
     &__header {
-      margin-bottom: 4.5rem;
+      margin-bottom: 2.5rem;
     }
     
     &__visual {

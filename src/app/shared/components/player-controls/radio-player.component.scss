@@ -103,19 +103,23 @@
 }
 
 .metadata-desktop {
-  flex: 1;
-  min-width: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 320px);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 
   .metadata__text {
-    display: inline-block;
+    display: block;
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: center;
   }
 }
 
