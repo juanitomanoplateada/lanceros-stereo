@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "framework": "angular",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/lanceros-stereo/browser",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

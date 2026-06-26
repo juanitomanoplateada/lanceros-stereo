@@ -9,6 +9,9 @@
     "test": "ng test"
   },
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@angular/common": "^22.0.3",
     "@angular/compiler": "^22.0.3",
@@ -37,6 +40,10 @@
   },
   "overrides": {
     "@babel/core": "^7.29.7",
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.1",
+    "lucide-angular": {
+      "@angular/common": "$@angular/common",
+      "@angular/core": "$@angular/core"
+    }
   }
 }
