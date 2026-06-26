@@ -4,11 +4,11 @@
   justify-content: center;
   align-items: flex-start;
   background-color: var(--color-bg-light);
-  padding: 5.5rem 1rem calc(72px + 5rem);
+  padding: 7rem 1rem calc(72px + 5rem);
   width: 100%;
 
   @media (max-width: 600px) {
-    padding: 2rem 0.5rem calc(72px + 2rem);
+    padding: 3.5rem 0.5rem calc(72px + 2rem);
   }
 }
 

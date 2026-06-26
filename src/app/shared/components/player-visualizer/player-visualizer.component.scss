@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 1rem 2rem;
+  padding: 1.5rem 1rem 2rem;
   margin-bottom: 1rem;
 
   &__container {
@@ -129,7 +129,7 @@
   }
 
   @media (max-width: 600px) {
-    padding: 0 0.5rem 1rem;
+    padding: 1rem 0.5rem 1rem;
     margin-bottom: 0.5rem;
 
     &__header {
@@ -167,7 +167,7 @@
 
 @media (max-height: 815px) and (min-width: 600px) {
   .live-player {
-    padding: 0 1rem;
+    padding: 1rem 1rem;
     margin-bottom: 0.75rem;
 
     &__header {
